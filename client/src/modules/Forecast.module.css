@@ -1,0 +1,13 @@
+.forecast{
+    color: rgb(104, 107, 110);
+    text-align: center;
+    padding-top: 10%;;
+}
+
+.forecast h1{
+    font-weight:300;
+}
+
+.forecast li{
+    font-weight: 100;
+}

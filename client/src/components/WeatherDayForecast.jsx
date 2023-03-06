@@ -1,6 +1,5 @@
 import React, {useEffect} from "react";
 import {useParams} from 'react-router-dom';
-import styles from '../modules/WeatherDayForecast.module.css';
 import { ReactComponent as Clear } from '../assets/WeatherAppImages/images/weather-icons/Clear.svg';
 import { ReactComponent as Clouds } from '../assets/WeatherAppImages/images/weather-icons/Clouds.svg';
 import { ReactComponent as Rain } from '../assets/WeatherAppImages/images/weather-icons/Rain.svg';
@@ -13,17 +12,16 @@ import { ReactComponent as Storm } from '../assets/WeatherAppImages/images/weath
 const WeatherDayForecast = (props) => {
   const {forecast} = props;
   const {dt}=useParams();
-  useEffect(()=>{
-  console.log(forecast);
-  console.log(dt)},[])
-  return( <div className={styles.forecast}>
+
+
+  return( <div>
   {forecast.filter((day)=> day.dt=== +dt).map((dayData, idx) => {
     const date= new Date(dayData.dt * 1000)
     const formattedDate= date.toLocaleString("en-US", {weekday:"long", month: "short", day: "numeric"})
     return(
-    <ul key={idx} className="list-unstyled">
+    <ul key={idx} className="list-unstyled pt-3">
       
-      <li className={styles.color}>
+      <li>
         {dayData.weather[0].main ==="Clear" &&<Clear/>}
         {dayData.weather[0].main ==="Snow" &&<Snow/>}
         {dayData.weather[0].main ==="Thunderstorm" &&<Storm/>}

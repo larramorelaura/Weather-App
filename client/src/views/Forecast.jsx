@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from "react";
-import {useParams, useLocation} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 import { geoCodeData, getWeatherData } from "../api/api";
 import WeatherDayForecast from "../components/WeatherDayForecast";
 import WeatherWeekForecast from "../components/WeatherWeekForecast";
+import styles from "../modules/Forecast.module.css";
 
 
 const Forecast = (props) => {
@@ -36,7 +37,7 @@ const Forecast = (props) => {
     }
   },[lat, lon]);
 
-  return <div className="text-center pt-5">
+  return <div className={styles.forecast}>
     <h1>{formattedCity}</h1>
     {
     oneDay?
