@@ -15,11 +15,14 @@ const WeatherWeekForecast = (props) => {
   const {city}= useParams();
   return (
     <div className={styles.forecast}>
+      {/* filtering results to only show five days and map through for display */}
       {forecast.filter((day, i)=> i<=4 ).map((day) => {
+        // formatting a date for display
         const date= new Date(day.dt * 1000)
         const formattedDate= date.toLocaleString("en-US", {weekday:"long", month: "short", day: "numeric"})
+        //declared variables to clean up the html conditional rendering a little bit
         const dayMain= day.weather[0].main;
-        const dayDesc= day.weather[0]. description;
+        const dayDesc= day.weather[0].description;
         return (
         <ul key={day.dt} className="position-relative list-unstyled">
           <li className={styles.icon}>

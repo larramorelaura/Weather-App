@@ -8,6 +8,7 @@ const Search = (props) => {
   const {isDashboard} = props;
   const navigate= useNavigate();
 
+  // navigates to the forecast with the city as a param
   const handleSubmit =(e)=>{
     e.preventDefault();
     navigate(`/forecast/${city}`);
