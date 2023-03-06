@@ -8,14 +8,14 @@ const Search = () => {
 
   const handleSubmit =(e)=>{
     e.preventDefault();
-    navigate(`/five-day/${city}`);
+    navigate(`/forecast/${city}`);
   }
 
   return <div>
     
     <form onSubmit={handleSubmit}>
       <input className="mx-2" type="text" name="city" onChange={(e)=>setCity(e.target.value)}/>
-      <input type="submit" className="btn btn-success"/>
+      <input type="submit" className="btn btn-sm btn-success" value="Get Weather"/>
     </form>
   </div>;
 };

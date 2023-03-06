@@ -1,0 +1,11 @@
+.forecast{
+    display:flex;
+    flex-wrap: wrap;
+    gap:30px;
+    padding:20%;
+    justify-content: space-around;
+}
+
+.color{
+    color: #83A5B3;
+}
