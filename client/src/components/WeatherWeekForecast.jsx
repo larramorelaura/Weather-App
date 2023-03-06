@@ -20,13 +20,13 @@ const WeatherWeekForecast = (props) => {
         const formattedDate= date.toLocaleString("en-US", {weekday:"long", month: "short", day: "numeric"})
         return (
         <ul key={day.dt} className="position-relative list-unstyled">
-          <li className={styles.color}>
+          <li className={styles.icon}>
             {day.weather[0].main ==="Clear" &&<Clear/>}
             {day.weather[0].main ==="Snow" &&<Snow/>}
             {day.weather[0].main ==="Thunderstorm" &&<Storm/>}
             {day.weather[0].main ==="Drizzle" || day.weather[0].description ==="light rain" &&<Rain/>}
             {day.weather[0].main ==="Rain" && day.weather[0].description !=="light rain" &&<ModRain/>}
-            {day.weather[0].descrilition ==="overcast clouds" &&<HeavyCloud/>}
+            {day.weather[0].description ==="overcast clouds" &&<HeavyCloud/>}
             {day.weather[0].description ==="broken clouds" &&<Clouds/>}
             {day.weather[0].description ==="few clouds" &&<LightClouds/>}
             {day.weather[0].description ==="scattered clouds" &&<LightClouds/>}

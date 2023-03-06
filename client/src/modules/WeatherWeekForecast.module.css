@@ -3,9 +3,12 @@
     flex-wrap: wrap;
     gap:30px;
     padding:5% 20%;
-    justify-content: space-around;
+    width:fit-content;
+    margin: 0 auto;
+    justify-content: start;
 }
 
-.color{
-    color: #83A5B3;
+.icon{
+    width: 80%;
+    height: 80%;
 }
