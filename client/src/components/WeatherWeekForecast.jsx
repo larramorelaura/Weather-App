@@ -18,22 +18,24 @@ const WeatherWeekForecast = (props) => {
       {forecast.filter((day, i)=> i<=4 ).map((day) => {
         const date= new Date(day.dt * 1000)
         const formattedDate= date.toLocaleString("en-US", {weekday:"long", month: "short", day: "numeric"})
+        const dayMain= day.weather[0].main;
+        const dayDesc= day.weather[0]. description;
         return (
         <ul key={day.dt} className="position-relative list-unstyled">
           <li className={styles.icon}>
-            {day.weather[0].main ==="Clear" &&<Clear/>}
-            {day.weather[0].main ==="Snow" &&<Snow/>}
-            {day.weather[0].main ==="Thunderstorm" &&<Storm/>}
-            {day.weather[0].main ==="Drizzle" || day.weather[0].description ==="light rain" &&<Rain/>}
-            {day.weather[0].main ==="Rain" && day.weather[0].description !=="light rain" &&<ModRain/>}
-            {day.weather[0].description ==="overcast clouds" &&<HeavyCloud/>}
-            {day.weather[0].description ==="broken clouds" &&<Clouds/>}
-            {day.weather[0].description ==="few clouds" &&<LightClouds/>}
-            {day.weather[0].description ==="scattered clouds" &&<LightClouds/>}
+            {dayMain ==="Clear" &&<Clear/>}
+            {dayMain ==="Snow" &&<Snow/>}
+            {dayMain ==="Thunderstorm" &&<Storm/>}
+            {dayMain ==="Drizzle" || dayDesc ==="light rain" &&<Rain/>}
+            {dayMain ==="Rain" && dayDesc !=="light rain" &&<ModRain/>}
+            {dayDesc ==="overcast clouds" &&<HeavyCloud/>}
+            {dayDesc ==="broken clouds" &&<Clouds/>}
+            {dayDesc ==="few clouds" &&<LightClouds/>}
+            {dayDesc ==="scattered clouds" &&<LightClouds/>}
             </li>
-          <Link className="stretched-link text-decoration-none text-secondary" to={{pathname:`/forecast/${city}/${day.dt}/oneday`}}><li>
-            {formattedDate}</li>
-          </Link>
+          <li>
+            <Link className="stretched-link text-decoration-none text-secondary" to={`/forecast/${city}/${day.dt}/oneday`}>{formattedDate}</Link>
+          </li>
         </ul>
       )})}
     </div>

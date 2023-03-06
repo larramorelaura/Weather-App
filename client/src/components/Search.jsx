@@ -14,7 +14,6 @@ const Search = (props) => {
   }
 
   return <div>
-    {console.log(isDashboard)}
     <form onSubmit={handleSubmit} className={isDashboard ? styles.dashboardSearch: styles.navbar}>
       <input className="mx-2" type="text" name="city" onChange={(e)=>setCity(e.target.value)}/>
       <input type="submit" className="btn btn-sm btn-success" value="Get Weather"/>

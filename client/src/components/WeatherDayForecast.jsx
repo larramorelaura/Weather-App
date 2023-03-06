@@ -16,24 +16,26 @@ const WeatherDayForecast = (props) => {
 
   return( <div>
   {forecast.filter((day)=> day.dt=== +dt).map((dayData, idx) => {
-    const date= new Date(dayData.dt * 1000)
-    const formattedDate= date.toLocaleString("en-US", {weekday:"long", month: "short", day: "numeric"})
+    const date= new Date(dayData.dt * 1000);
+    const formattedDate= date.toLocaleString("en-US", {weekday:"long", month: "short", day: "numeric"});
+    const dayMain= dayData.weather[0].main;
+    const dayDesc= dayData.weather[0].description;
     return(
     <ul key={idx} className="list-unstyled pt-3">
       
       <li>
-        {dayData.weather[0].main ==="Clear" &&<Clear/>}
-        {dayData.weather[0].main ==="Snow" &&<Snow/>}
-        {dayData.weather[0].main ==="Thunderstorm" &&<Storm/>}
-        {dayData.weather[0].main ==="Drizzle" || dayData.weather[0].description ==="light rain" &&<Rain/>}
-        {dayData.weather[0].main ==="Rain" && dayData.weather[0].description !=="light rain" &&<ModRain/>}
-        {dayData.weather[0].descrilition ==="overcast clouds" &&<HeavyCloud/>}
-        {dayData.weather[0].description ==="broken clouds" &&<Clouds/>}
-        {dayData.weather[0].description ==="few clouds" &&<LightClouds/>}
-        {dayData.weather[0].description ==="scattered clouds" &&<LightClouds/>}
+        {dayMain ==="Clear" &&<Clear/>}
+        {dayMain ==="Snow" &&<Snow/>}
+        {dayMain ==="Thunderstorm" &&<Storm/>}
+        {dayMain ==="Drizzle" || dayDesc ==="light rain" &&<Rain/>}
+        {dayMain ==="Rain" && dayDesc !=="light rain" &&<ModRain/>}
+        {dayDesc ==="overcast clouds" &&<HeavyCloud/>}
+        {dayDesc ==="broken clouds" &&<Clouds/>}
+        {dayDesc ==="few clouds" &&<LightClouds/>}
+        {dayDesc ==="scattered clouds" &&<LightClouds/>}
       </li>
       <li>{formattedDate}</li>
-      <li>{dayData.weather[0].description}</li>
+      <li>{dayDesc}</li>
       <li>High: {Math.round(dayData.temp.max)}</li>
       <li>Low: {Math.round(dayData.temp.min)}</li>
       <li>Humidity: {dayData.humidity}%</li>
