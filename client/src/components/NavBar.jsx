@@ -5,7 +5,7 @@ import styles from '../modules/NavBar.module.css'
 const NavBar = () => {
   return <div className={styles.nav}>
     <h2>My Weather App</h2>
-    <Search />
+    <Search isDashboard={false}/>
   </div>;
 };
 

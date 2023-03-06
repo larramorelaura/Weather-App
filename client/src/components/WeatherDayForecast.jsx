@@ -12,7 +12,7 @@ import { ReactComponent as Storm } from '../assets/WeatherAppImages/images/weath
 
 const WeatherDayForecast = (props) => {
   const {forecast} = props;
-  const {city, dt}=useParams();
+  const {dt}=useParams();
   useEffect(()=>{
   console.log(forecast);
   console.log(dt)},[])

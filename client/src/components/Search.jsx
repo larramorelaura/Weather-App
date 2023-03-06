@@ -1,9 +1,11 @@
 import React, {useState} from "react";
 import {useNavigate} from 'react-router-dom';
+import styles from '../modules/Search.module.css';
 
-const Search = () => {
+const Search = (props) => {
 
   const [city, setCity] = useState("");
+  const {isDashboard} = props;
   const navigate= useNavigate();
 
   const handleSubmit =(e)=>{
@@ -12,8 +14,8 @@ const Search = () => {
   }
 
   return <div>
-    
-    <form onSubmit={handleSubmit}>
+    {console.log(isDashboard)}
+    <form onSubmit={handleSubmit} className={isDashboard ? styles.dashboardSearch: styles.navbar}>
       <input className="mx-2" type="text" name="city" onChange={(e)=>setCity(e.target.value)}/>
       <input type="submit" className="btn btn-sm btn-success" value="Get Weather"/>
     </form>

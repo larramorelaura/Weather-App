@@ -31,7 +31,7 @@ const WeatherWeekForecast = (props) => {
             {day.weather[0].description ==="few clouds" &&<LightClouds/>}
             {day.weather[0].description ==="scattered clouds" &&<LightClouds/>}
             </li>
-          <Link className="stretched-link" to={{pathname:`/forecast/${city}/${day.dt}/oneday`}}><li>
+          <Link className="stretched-link text-decoration-none text-secondary" to={{pathname:`/forecast/${city}/${day.dt}/oneday`}}><li>
             {formattedDate}</li>
           </Link>
         </ul>
