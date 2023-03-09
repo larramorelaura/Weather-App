@@ -1,6 +1,7 @@
 import React from "react";
 import {Link, useParams} from "react-router-dom";
-import styles from '../modules/WeatherWeekForecast.module.css'
+import styles from '../modules/WeatherWeekForecast.module.css';
+import { formatDate } from "../helpers/formatDate.js";
 import { ReactComponent as Clear } from '../assets/WeatherAppImages/images/weather-icons/Clear.svg';
 import { ReactComponent as Clouds } from '../assets/WeatherAppImages/images/weather-icons/Clouds.svg';
 import { ReactComponent as LightClouds } from '../assets/WeatherAppImages/images/weather-icons/02d.svg';
@@ -17,9 +18,6 @@ const WeatherWeekForecast = (props) => {
     <div className={styles.forecast}>
       {/* filtering results to only show five days and map through for display */}
       {forecast.filter((day, i)=> i<=4 ).map((day) => {
-        // formatting a date for display
-        const date= new Date(day.dt * 1000)
-        const formattedDate= date.toLocaleString("en-US", {weekday:"long", month: "short", day: "numeric"})
         //declared variables to clean up the html conditional rendering a little bit
         const dayMain= day.weather[0].main;
         const dayDesc= day.weather[0].description;
@@ -37,7 +35,7 @@ const WeatherWeekForecast = (props) => {
             {dayDesc ==="scattered clouds" &&<LightClouds/>}
             </li>
           <li>
-            <Link className="stretched-link text-decoration-none text-secondary" to={`/forecast/${city}/${day.dt}/oneday`}>{formattedDate}</Link>
+            <Link className="stretched-link text-decoration-none text-secondary" to={`/forecast/${city}/${day.dt}/oneday`}>{formatDate(day.dt)}</Link>
           </li>
         </ul>
       )})}

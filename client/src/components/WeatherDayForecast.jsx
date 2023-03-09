@@ -1,5 +1,6 @@
 import React from "react";
 import {useParams} from 'react-router-dom';
+import { formatDate } from "../helpers/formatDate.js";
 import { ReactComponent as Clear } from '../assets/WeatherAppImages/images/weather-icons/Clear.svg';
 import { ReactComponent as Clouds } from '../assets/WeatherAppImages/images/weather-icons/Clouds.svg';
 import { ReactComponent as Rain } from '../assets/WeatherAppImages/images/weather-icons/Rain.svg';
@@ -17,9 +18,6 @@ const WeatherDayForecast = (props) => {
   return( <div>
     {/* filter day based on the dt from the url and then map the data for display */}
   {forecast.filter((day)=> day.dt=== +dt).map((dayData, idx) => {
-    //formatting date for display
-    const date= new Date(dayData.dt * 1000);
-    const formattedDate= date.toLocaleString("en-US", {weekday:"long", month: "short", day: "numeric"});
     //declared variables to clean up the html conditional rendering a little bit
     const dayMain= dayData.weather[0].main;
     const dayDesc= dayData.weather[0].description;
@@ -37,7 +35,7 @@ const WeatherDayForecast = (props) => {
         {dayDesc ==="few clouds" &&<LightClouds/>}
         {dayDesc ==="scattered clouds" &&<LightClouds/>}
       </li>
-      <li>{formattedDate}</li>
+      <li>{formatDate(dayData.dt)}</li>
       <li>{dayDesc}</li>
       <li>High: {Math.round(dayData.temp.max)}</li>
       <li>Low: {Math.round(dayData.temp.min)}</li>
