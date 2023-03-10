@@ -1,6 +1,6 @@
 import React from "react";
 import {useParams} from 'react-router-dom';
-import { formatDate } from "../helpers/formatDate.js";
+import { formatDate } from "../helpers/helperFunction.js";
 import { ReactComponent as Clear } from '../assets/WeatherAppImages/images/weather-icons/Clear.svg';
 import { ReactComponent as Clouds } from '../assets/WeatherAppImages/images/weather-icons/Clouds.svg';
 import { ReactComponent as Rain } from '../assets/WeatherAppImages/images/weather-icons/Rain.svg';

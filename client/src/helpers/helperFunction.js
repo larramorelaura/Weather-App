@@ -3,3 +3,4 @@ export function formatDate(dt){
     const formattedDate= date.toLocaleString("en-US", {weekday:"long", month: "short", day: "numeric"});
     return formattedDate;
 }
+
