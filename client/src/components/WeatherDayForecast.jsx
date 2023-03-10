@@ -11,7 +11,6 @@ const WeatherDayForecast = (props) => {
   return( <div>
     {/* filter day based on the dt from the url and then map the data for display */}
   {forecast.filter((day)=> day.dt=== +dt).map((dayData, idx) => {
-    
     return(
     <ul key={idx} className="list-unstyled pt-3">
       {/* conditional rendering of icons */}
