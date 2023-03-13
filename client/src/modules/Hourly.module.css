@@ -1,0 +1,39 @@
+.forecast{
+    display:flex;
+    flex-wrap: wrap;
+    gap:30px;
+    padding:10%;
+    width:fit-content;
+    margin: 0 auto;
+    justify-content: start;
+    color: rgb(104, 107, 110);
+}
+
+h1{
+    color: rgb(104, 107, 110);
+    margin: 0 auto;
+}
+
+.formatIcon{
+    width: 40%;
+    height: 40%;
+}
+
+.tableRow{
+    height: 60px;
+    vertical-align: middle;
+}
+
+@media screen and (max-width: 767px) {
+    .tableRow {
+        height: auto;
+        display: block;
+    }
+    .formatIcon span{
+        display:none;
+    }
+
+    .customTable{
+        width:100%;
+    }
+}

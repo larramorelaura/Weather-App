@@ -1,13 +1,31 @@
 .forecast{
     color: rgb(104, 107, 110);
     text-align: center;
-    padding-top: 10%;;
+    padding-top: 10%;
 }
 
 .forecast h1{
-    font-weight:300;
+    font-weight:500;
+    
 }
 
 .forecast li{
     font-weight: 100;
+}
+
+.forecast h3{
+    font-weight: 200;
+}
+
+.forecastContainer{
+    display:flex;
+    padding: 5%;
+    justify-content: center;
+    gap:5%;
+}
+
+@media screen and (max-width: 767px) {
+    .forecastContainer{
+        display: block;
+    }
 }

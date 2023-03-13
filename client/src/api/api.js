@@ -7,3 +7,7 @@ export function geoCodeData(city, apiKey){
 export function getWeatherData(lat, lon, apiKey){
     return axios.get(`http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&appid=${apiKey}&units=imperial`)
 }
+
+export function getHourlyWeatherData(lat, lon, apiKey){
+    return axios.get(`http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=daily,minutely&appid=${apiKey}&units=imperial`)
+}
