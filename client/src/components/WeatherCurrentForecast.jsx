@@ -8,7 +8,7 @@ const WeatherCurrentForecast = (props) => {
   const {currentForecast} = props;
   console.log(currentForecast)
   return (
-    <div>
+    <div className="position-relative">
       <p>
             <Link className="stretched-link text-decoration-none text-secondary" to={`/forecast/hourly/${city}`}>{formatDate(currentForecast.dt)}</Link>
       </p>    
